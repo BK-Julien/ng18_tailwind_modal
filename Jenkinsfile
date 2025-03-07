@@ -6,8 +6,6 @@ pipeline {
             steps {
                 sh ''' 
                     echo "Without docker"
-                    ls -larth
-                    touch container-no.txt
                 '''
             }
         }
@@ -22,8 +20,6 @@ pipeline {
             steps {
                 sh '''
                     echo "With docker"
-                    ls -larth
-                    touch container-yes.txt
                 '''
             }
         }
