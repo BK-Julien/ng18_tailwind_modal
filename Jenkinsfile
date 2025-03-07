@@ -11,12 +11,7 @@ pipeline {
             }
             steps {
                 sh '''
-                    ls -larth
-                    node --version
-                    npm --version
-                    npm install
-                    npm update
-                    sudo npm install -g @angular/cli
+                    npm ci
                     ng version
                     ng build
                     ls -larth
