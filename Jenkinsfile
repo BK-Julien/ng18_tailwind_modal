@@ -16,7 +16,7 @@ pipeline {
                     npm --version
                     npm install
                     npm update
-                    npm install -g @angular/cli
+                    sudo npm install -g @angular/cli
                     ng version
                     ng build
                     ls -larth
