@@ -16,9 +16,10 @@ pipeline {
                     npm --version
                     npm install
                     npm update
-                    npm install -g @angular/cli@<18.>
-
-                    echo "With docker"
+                    npm install -g @angular/cli@18.2.0
+                    ng version
+                    ng build
+                    ls -larth
                 '''
             }
         }
