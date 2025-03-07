@@ -1,16 +1,8 @@
 pipeline {
     agent any
 
-    stages {
-        stage('w/o docker') {
-            steps {
-                sh ''' 
-                    echo "Without docker"
-                '''
-            }
-        }
-        
-        stage('w docker') {
+    stages {    
+        stage('build') {
             agent {
                 docker {
                     image 'node:20-alpine'
@@ -19,6 +11,13 @@ pipeline {
             }
             steps {
                 sh '''
+                    ls -larth
+                    node --version
+                    npm --version
+                    npm install
+                    npm update
+                    npm install -g @angular/cli@<18.>
+
                     echo "With docker"
                 '''
             }
