@@ -2,10 +2,29 @@ pipeline {
     agent any
 
     stages {
-        stage('Hello') {
+        stage('w/o docker') {
             steps {
-                sh 'echo "Hello from Jenkins"'
-                sh 'whoami'
+                sh ''' 
+                    echo "Without docker"
+                    ls -larth
+                    touch container-no.txt
+                '''
+            }
+        }
+        
+        stage('w docker') {
+            agent {
+                docker {
+                    image 'node:20-alpine'
+                    reuseNode true
+                }
+            }
+            steps {
+                sh '''
+                    echo "With docker"
+                    ls -larth
+                    touch container-yes.txt
+                '''
             }
         }
     }
